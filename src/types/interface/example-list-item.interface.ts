@@ -8,7 +8,7 @@ export default interface ExampleListItemInterface {
     // DDL 상에서 NOT NULL 이 아닌, NULL 이라면 string | null 이런 식으로 표기해 주어야 한다.
 }
 
-/*
+/* 자바 파일
 private int exampleNumber; // 문제 ID
     private String title; // 문제 제목
     private int level; //

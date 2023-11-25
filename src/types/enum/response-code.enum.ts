@@ -7,7 +7,7 @@ enum ResponseCode{
     DUPLICATE_EMAIL = "Duplicate email.",
     DUPLICATE_NICKNAME = "Duplicate nickname.",
     DUPLICATE_TEL_NUMBER = "Duplicate tel number.",
-    NOT_EXISTED_USER = "This user does not exist",
+    NOT_EXISTED_USER = "This user does not exist.",
     NOT_EXISTED_EXAMPLE = "This example not exist.",
 
     // HTTP Status 401
