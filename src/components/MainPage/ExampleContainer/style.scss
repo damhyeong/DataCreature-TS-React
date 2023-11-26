@@ -1,0 +1,26 @@
+.example-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5rem;
+  .example-current{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title-current{
+      padding-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+  }
+  .example-level{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title-level{
+      padding-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+  }
+}

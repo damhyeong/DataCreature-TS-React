@@ -3,6 +3,9 @@
   background: #efefef;
   border-radius: 15px;
   width: 45rem;
+  height : 600px;
+  overflow-y: auto;
+  overflow-x: clip;
   flex-direction: column;
   .title-container{
     display: flex;

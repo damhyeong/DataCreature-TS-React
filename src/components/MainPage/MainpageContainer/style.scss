@@ -1,0 +1,25 @@
+.main-page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .main-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .project-title{
+      padding-left: 5rem;
+      font-size: 2rem;
+    }
+    .user-id{
+      padding-right: 5rem;
+      font-size: 1.25rem;
+    }
+  }
+  hr{
+    width : 90%;
+    border: 2px dashed black;
+  }
+}

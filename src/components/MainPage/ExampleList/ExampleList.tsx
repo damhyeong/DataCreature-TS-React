@@ -2,8 +2,20 @@ import React from "react";
 import "./style.scss"
 import ExampleListItem from "../ExampleListItem/ExampleListItem";
 
-const ExampleList = () => {
+interface EIFace{
+    id : number;
+    title : string;
+    level : number;
+}
 
+// Example List Interface
+interface ELIface {
+    examList : EIFace[];
+}
+
+const ExampleCurrentList = (props : ELIface) => {
+
+    const {examList} = props;
 
     return (
         <div className={"container"}>
@@ -15,9 +27,12 @@ const ExampleList = () => {
 
 
             <div className={"exam-container"}>
-                <ExampleListItem id={1} title={"10부터 1까지 출력하기"} level={0}/>
+                {examList.map(
+                    (exam : EIFace) => <ExampleListItem id={exam.id} title={exam.title} level={exam.level}/>
+                )}
+
             </div>
         </div>
     )
 }
-export default ExampleList;
+export default ExampleCurrentList;
