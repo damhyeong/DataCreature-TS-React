@@ -8,7 +8,7 @@ import SolvePageContainer from "./components/SolvePage/SolvePageContainer/SolveP
 
 function App() {
     return (
-        <SolvePageContainer examId={1} title={"JadenCase 문자열 만들기"} level={3}/>
+        <SolvePageContainer examId={1} title={"JadenCase 문자열 만들기"} level={3} nickname={"담순쨩"}/>
     );
 }
 
