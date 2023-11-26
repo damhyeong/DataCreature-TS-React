@@ -1,0 +1,42 @@
+.container{
+  display: flex;
+  background: #efefef;
+  border-radius: 15px;
+  width: 45rem;
+  flex-direction: column;
+  .title-container{
+    display: flex;
+    padding-top: 2rem;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .id-title{
+      display: flex;
+      justify-content: center;
+      width: 5rem;
+      font-size: 1.5rem;
+    }
+    .title-title{
+      display: flex;
+      justify-content: center;
+      width : 15rem;
+      font-size: 1.5rem;
+    }
+    .level-title{
+      display: flex;
+      justify-content: center;
+      width : 5rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .exam-container{
+    width: 100%;
+    padding-top: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+}

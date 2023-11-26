@@ -1,0 +1,32 @@
+.example-list-item{
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 1rem;
+  width: 40rem;
+  .main-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .item-left{
+      justify-content: center;
+      align-items: center;
+      .example-id{
+        width : 2rem;
+      }
+    }
+    .item-middle{
+      justify-content: center;
+      align-items: center;
+      .example-title{
+        width : 15rem;
+      }
+    }
+    .item-right{
+      justify-content: center;
+      align-items: center;
+      .example-level{
+        width : 2rem;
+      }
+    }
+  }
+}
