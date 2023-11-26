@@ -1,8 +1,20 @@
 import React from 'react';
 
-const Index = () => {
+const ExampleListItem = () => {
     return (
-        <div>index</div>
+        <div className={"example-list-item"}>
+            <div className={"main-box"}>
+                <div className={"item-left"}>
+
+                </div>
+                <div className={"item-middle"}>
+
+                </div>
+                <div className={"item-right"}>
+
+                </div>
+            </div>
+        </div>
     )
 }
-export default Index;
+export default ExampleListItem;
