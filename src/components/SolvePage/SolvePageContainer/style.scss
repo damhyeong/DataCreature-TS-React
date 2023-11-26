@@ -1,0 +1,24 @@
+.solve-main-page{
+  display: flex;
+  flex-direction: column;
+  background: #172A46;
+  height: 100vh;
+  overflow-x: clip;
+  overflow-y: auto;
+  color: white;
+  .header{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .project-title{
+      padding-left: 2rem;
+      font-size: 2.5rem;
+    }
+    .user-id{
+      padding-right: 3rem;
+      font-size: 2.5rem;
+    }
+  }
+}
