@@ -12,13 +12,58 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 2.5rem;
     .project-title{
       padding-left: 2rem;
-      font-size: 2.5rem;
     }
     .user-id{
       padding-right: 3rem;
-      font-size: 2.5rem;
+    }
+  }
+  .level-and-id{
+    display: flex;
+    flex-direction: row;
+    padding-left: 3rem;
+    font-size: 2rem;
+    width: 20rem;
+    border: 1px solid white;
+
+    .level{
+
+    }
+    .id{
+      padding-left: 5rem;
+    }
+  }
+  .computing-constraints{
+    padding-top: 2rem;
+    padding-left: 3rem;
+    width: 15rem;
+    font-size: 1.125rem;
+
+    .constraints-title{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      font-weight: bold;
+      .time-constraints{
+
+      }
+      .memory-constraints{
+
+      }
+    }
+    .constraints-detail{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .time-constraints{
+
+      }
+      .memory-constraints{
+
+      }
     }
   }
 }
