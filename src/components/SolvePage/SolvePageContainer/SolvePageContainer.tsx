@@ -22,7 +22,7 @@ const SolvePageContainer = ({examId, title, level, nickname} : ParamIFace) => {
     const sampleDetailData = {
         exam_number : 3,
         introduce : "JadenCase란 모든 단어의 첫 문자가 대문자이고, 그 외의 알파벳은 소문자인 문자열입니다.\n단, 첫 문자가 알파벳이 아닐 때에는 이어지는 알파벳은 소문자로 쓰면 됩니다.",
-        exam_constraints : '* "input"은 길이 1 이상 200 이하인 문자열입니다.\n* "input"은 알파벳과 숫자, 공백문자("")로 이루어져 있습니다.\n* 숫자는 단어의 첫 문자로만 나옵니다.\n* 숫자로만 이루어진 단어는 없습니다.',
+        exam_constraints : "* 'input'은 길이 1 이상 200 이하인 문자열입니다.\n* 'input'은 알파벳과 숫자, 공백문자(' ')로 이루어져 있습니다.\n* 숫자는 단어의 첫 문자로만 나옵니다.\n* 숫자로만 이루어진 단어는 없습니다.",
         exam_input : "3people unFollwed me",
         exam_output : "3people Unfollwed Me",
     }

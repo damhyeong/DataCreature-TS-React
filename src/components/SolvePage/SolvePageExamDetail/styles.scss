@@ -1,0 +1,40 @@
+.container{
+  padding-top: 4rem;
+  .example-title{
+    padding-left: 3rem;
+    font-size: 3rem;
+  }
+  hr{
+    border: 1px solid #61dafb;
+  }
+  .example-container{
+    padding-left: 3rem;
+    .title{
+      padding-top : 2rem;
+      font-size: 2rem;
+    }
+    .example-introduce{
+      padding-top: 1rem;
+      font-size : 1.5rem;
+      width: 60rem;
+      background: none;
+      border: none;
+      color : white;
+      min-height: 15vh;
+      white-space: pre-wrap;
+    }
+    .example-constraints{
+      padding-top: 1rem;
+      font-size : 1.5rem;
+      width: 60rem;
+      background: none;
+      border: none;
+      color : white;
+      min-height: 15vh;
+      white-space: pre-wrap; // "\n" 표현을 줄넘김 할 수 있게 해준다.
+    }
+    .example-input-output{
+      padding-top: 1rem;
+    }
+  }
+}
