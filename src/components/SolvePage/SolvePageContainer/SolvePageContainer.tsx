@@ -27,6 +27,7 @@ const SolvePageContainer = ({examId, title, level, nickname} : ParamIFace) => {
         exam_output : "3people Unfollwed Me",
     }
 
+    // 문제 상세 정보를 데이터베이스에서 받아온다면 딱 이 모양.
     const {exam_number, introduce, exam_constraints, exam_input, exam_output} = sampleDetailData;
 
 

@@ -12,12 +12,12 @@ const InputOutputTables = ({input, output} : PFace) => {
         <div className={"container"}>
             <table>
                 <thead>
-                <td>Input Text</td>
-                <td>Output Text</td>
+                <td><div className={"header-input-title"}>Input Text</div></td>
+                <td><div className={"header-output-title"}>Output Text</div></td>
                 </thead>
                 <tr>
-                    <td>{input}</td>
-                    <td>{output}</td>
+                    <td><div className={"input-string"}>{input}</div></td>
+                    <td><div className={"output-string"}>{output}</div></td>
                 </tr>
             </table>
         </div>
