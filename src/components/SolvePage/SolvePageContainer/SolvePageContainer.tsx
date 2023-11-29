@@ -1,9 +1,10 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import "./style.scss"
 import SolvePageExamDetail from "../SolvePageExamDetail/SolvePageExamDetail";
 import SolvePageInputCode from "../SolvePageInputCode/SolvePageInputCode";
 import RunArea from "../RunArea/RunArea";
 import {useLocation, useParams} from "react-router-dom";
+import axios from "axios";
 
 interface ParamIFace{
     examId : string | undefined;
@@ -38,7 +39,7 @@ const SolvePageContainer = () => {
     private String exam_constraints;
     private String exam_input;
     private String exam_output;
-     */
+
     const sampleDetailData = {
         exam_number : 3,
         introduce : "JadenCase란 모든 단어의 첫 문자가 대문자이고, 그 외의 알파벳은 소문자인 문자열입니다.\n단, 첫 문자가 알파벳이 아닐 때에는 이어지는 알파벳은 소문자로 쓰면 됩니다.",
@@ -49,13 +50,46 @@ const SolvePageContainer = () => {
 
     // 문제 상세 정보를 데이터베이스에서 받아온다면 딱 이 모양.
     const {exam_number, introduce, exam_constraints, exam_input, exam_output} = sampleDetailData;
+*/
+
+    // API에서 데이터를 가져오기 위한 상태
+    const [detailData, setDetailData] = useState({
+        examNumber: 0,
+        introduce: '',
+        examConstraints: '',
+        examInput: '',
+        examOutput: ''
+    });
+
+    // 문제 상세 정보를 불러오는 함수
+    const fetchDetailData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:4000/api/examples/${queryParams.examId}`, {
+                /*
+                params: {
+                    examId: queryParams.examId
+                }
+                */
+
+            });
+            setDetailData(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error("문제 상세 정보를 가져오는 중 오류 발생", error);
+        }
+    };
+
+    // 컴포넌트가 마운트될 때 API 호출
+    useEffect(() => {
+        fetchDetailData();
+    }, [queryParams.examId]); // examId가 변경될 때마다 호출
 
     // SolvePageInputCode에 넘길 State
     const [code, setCode] = useState<string>(
         'import java.util.*;\n' +
         '\n' +
         'class Solution {\n' +
-        '       public String solution(String s) {\n' +
+        '       public void main(String s) {\n' +
         '               return s;\n' +
         '       }\n' +
         '}')
@@ -67,12 +101,16 @@ const SolvePageContainer = () => {
     }, []);
 
     //RunArea에 넘길 함수. -- "RUN!' 버튼 클릭 시 구동
-    const onClickRunButton = useCallback(() => {
-        const codeRequest = code;
+    const onClickRunButton = useCallback(async () => {
+        const response = await axios.post('http://localhost:4000/execute-code', code);
+
+        console.log(response.data);
+
         // axios.get(code)
         // 받아온 결과값 setState화 해야한다.
         // 밑에 "2개 중 1개 성공" 과 같은 문장이 나오도록 설정.
-    }, [])
+    }, [code])
+
 
     return (
         <div className={"solve-main-page"}>
@@ -97,10 +135,10 @@ const SolvePageContainer = () => {
             </div>
             <SolvePageExamDetail
                 title={queryParams.title}
-                introduce={introduce}
-                constraints={exam_constraints}
-                input={exam_input}
-                output={exam_output}
+                introduce={detailData.introduce}
+                constraints={detailData.examConstraints}
+                input={detailData.examInput}
+                output={detailData.examOutput}
             />
             <SolvePageInputCode code={code} onChangeCode={onChangeCode}/>
             <div className={"run-area"}>

@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './style.scss'
 import ExampleList from "../ExampleList/ExampleList";
 
 interface exam{
-    id : number;
+    exampleNumber : number;
     title : string;
     level : number;
 }
@@ -22,6 +22,11 @@ const ExampleContainer = ({currentList, levelList} : PIFace) => {
     const [levelExamList, setLevelExamList] = useState<exam[]>(
         levelList
     )
+
+    useEffect(() => {
+        setCurrentExamList(currentList);
+        setLevelExamList(levelList);
+    }, [currentList, levelList]);
 
     return (
         <div className={"example-container"}>

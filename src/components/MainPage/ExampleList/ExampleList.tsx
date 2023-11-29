@@ -3,7 +3,7 @@ import "./style.scss"
 import ExampleListItem from "../ExampleListItem/ExampleListItem";
 
 interface EIFace{
-    id : number;
+    exampleNumber : number;
     title : string;
     level : number;
 }
@@ -17,6 +17,8 @@ const ExampleCurrentList = (props : ELIface) => {
 
     const {examList} = props;
 
+    console.log(examList);
+
     return (
         <div className={"container"}>
             <div className={"title-container"}>
@@ -28,7 +30,7 @@ const ExampleCurrentList = (props : ELIface) => {
 
             <div className={"exam-container"}>
                 {examList.map(
-                    (exam : EIFace) => <ExampleListItem id={exam.id} title={exam.title} level={exam.level}/>
+                    (exam : EIFace) => <ExampleListItem key={exam.exampleNumber} id={exam.exampleNumber} title={exam.title} level={exam.level}/>
                 )}
 
             </div>

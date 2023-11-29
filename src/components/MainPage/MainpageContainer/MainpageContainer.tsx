@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './style.scss'
 import ExampleContainer from "../ExampleContainer/ExampleContainer";
+import axios from "axios";
 
 interface exam{
-    id : number;
+    exampleNumber : number;
     title : string;
     level : number;
 }
@@ -14,13 +15,36 @@ const MainpageContainer = () => {
 
     // 여기서 API Backend Server로 요청을 보내 정보를 얻어야 한다.
     const [currentList, setCurrentList] = useState<exam[]>([
-        {id : 2, title : "10부터 1까지 출력하기", level : 0},
-        {id : 1, title : "1부터 10까지 출력하기", level : 0},
+        {exampleNumber : 2, title : "10부터 1까지 출력하기", level : 0},
+        {exampleNumber : 1, title : "1부터 10까지 출력하기", level : 0},
     ])
     const [levelList, setLevelList] = useState<exam[]>([
-        {id : 1, title : "1부터 10까지 출력하기", level : 0},
-        {id : 2, title : "10부터 1까지 출력하기", level : 0},
+        {exampleNumber : 1, title : "1부터 10까지 출력하기", level : 0},
+        {exampleNumber : 2, title : "10부터 1까지 출력하기", level : 0},
     ])
+
+    const fetchDetailData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:4000/api/examples/currentList`, {
+                /*
+                params: {
+                    examId: queryParams.examId
+                }
+                */
+
+            });
+            setCurrentList(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error("문제 상세 정보를 가져오는 중 오류 발생", error);
+        }
+    };
+
+    // 컴포넌트가 마운트될 때 API 호출
+    useEffect(() => {
+        fetchDetailData();
+    }, []); // examId가 변경될 때마다 호출
+
 
     return (
         <div className={"main-page"}>
