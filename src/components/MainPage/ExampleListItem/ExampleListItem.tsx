@@ -11,7 +11,6 @@ interface PIFace{
 const ExampleListItem = (props : PIFace) => {
     const {id, title, level} = props;
 
-
     return (
         <div className={"example-list-item"}>
             <div className={"main-box"}>

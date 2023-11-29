@@ -3,18 +3,32 @@ import "./style.scss"
 import SolvePageExamDetail from "../SolvePageExamDetail/SolvePageExamDetail";
 import SolvePageInputCode from "../SolvePageInputCode/SolvePageInputCode";
 import RunArea from "../RunArea/RunArea";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 
 interface ParamIFace{
-    examId : string;
-    title : string;
-    level : string;
-    nickname : string;
+    examId : string | undefined;
+    title : string | undefined;
+    level : string | undefined;
+    nickname : string | undefined;
 }
 
 const SolvePageContainer = () => {
     // {examId, title, level, nickname} : ParamIFace
-    const {examId, title, level, nickname} = useParams()
+    const location = useLocation();
+
+    // Function to parse the query parameters
+    const getQueryParams = (query: string): ParamIFace => {
+        const params = new URLSearchParams(query);
+        return {
+            examId: params.get('examId') || '',
+            title: params.get('title') || '',
+            level: params.get('level') || '',
+            nickname: params.get('nickname') || ''
+        };
+    };
+
+    // Get the current query parameters
+    const queryParams = getQueryParams(location.search)
 
     /*
     추후 이 영역에 문제 상세 정보에 대해서 가져와야 한다. (Database -> Backend -> Frontend)
@@ -64,11 +78,11 @@ const SolvePageContainer = () => {
         <div className={"solve-main-page"}>
             <div className={"header"}>
                 <div className={"project-title"}>Data Creature</div>
-                <div className={"user-id"}>{nickname}</div>
+                <div className={"user-id"}>{queryParams.nickname}</div>
             </div>
             <div className={"level-and-id"}>
-                <div className={"level"}>Level : {level}</div>
-                <div className={"id"}>ID : {examId}</div>
+                <div className={"level"}>Level : {queryParams.level}</div>
+                <div className={"id"}>ID : {queryParams.examId}</div>
             </div>
             <div className={"computing-constraints"}>
                 <div className={"constraints-title"}>
@@ -82,7 +96,7 @@ const SolvePageContainer = () => {
                 </div>
             </div>
             <SolvePageExamDetail
-                title={title}
+                title={queryParams.title}
                 introduce={introduce}
                 constraints={exam_constraints}
                 input={exam_input}

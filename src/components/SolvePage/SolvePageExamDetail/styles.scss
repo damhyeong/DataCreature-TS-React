@@ -1,15 +1,23 @@
 .container{
+  display: flex;
+  flex-direction: column;
   padding-top: 4rem;
+  width: 80%;
+  background: none;
+  min-height: 60vh;
   .example-title{
     padding-left: 3rem;
     font-size: 3rem;
   }
   hr{
     border: 1px solid #61dafb;
-
+    width: 80%;
   }
   .example-container{
+    display: flex;
+    flex-direction: column;
     padding-left: 3rem;
+
     .title{
       padding-top : 2rem;
       font-size: 2rem;

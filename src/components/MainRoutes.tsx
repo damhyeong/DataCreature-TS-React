@@ -8,7 +8,7 @@ const MainRoutes = () => {
         <BrowserRouter>
             <Routes>
                 <Route path={"/mainPage"} element={<MainpageContainer/>}/>
-                <Route path={"/solvePage/:examId/:title/:level/:nickname"} element={<SolvePageContainer/>}/>
+                <Route path={"/solvePage/*"} element={<SolvePageContainer/>}/>
             </Routes>
         </BrowserRouter>
     )
