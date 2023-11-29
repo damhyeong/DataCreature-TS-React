@@ -3,7 +3,7 @@ import './styles.scss';
 import InputOutputTables from "../InputOutputTables/InputOutputTables";
 
 interface PFace{
-    title : string;
+    title : string | undefined;
     introduce : string;
     constraints : string;
     input : string;

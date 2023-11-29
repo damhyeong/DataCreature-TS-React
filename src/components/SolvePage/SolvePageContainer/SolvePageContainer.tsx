@@ -1,15 +1,21 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import "./style.scss"
 import SolvePageExamDetail from "../SolvePageExamDetail/SolvePageExamDetail";
+import SolvePageInputCode from "../SolvePageInputCode/SolvePageInputCode";
+import RunArea from "../RunArea/RunArea";
+import {useParams} from "react-router-dom";
 
 interface ParamIFace{
-    examId : number;
+    examId : string;
     title : string;
-    level : number;
+    level : string;
     nickname : string;
 }
 
-const SolvePageContainer = ({examId, title, level, nickname} : ParamIFace) => {
+const SolvePageContainer = () => {
+    // {examId, title, level, nickname} : ParamIFace
+    const {examId, title, level, nickname} = useParams()
+
     /*
     추후 이 영역에 문제 상세 정보에 대해서 가져와야 한다. (Database -> Backend -> Frontend)
     axios 사용하기
@@ -30,7 +36,29 @@ const SolvePageContainer = ({examId, title, level, nickname} : ParamIFace) => {
     // 문제 상세 정보를 데이터베이스에서 받아온다면 딱 이 모양.
     const {exam_number, introduce, exam_constraints, exam_input, exam_output} = sampleDetailData;
 
+    // SolvePageInputCode에 넘길 State
+    const [code, setCode] = useState<string>(
+        'import java.util.*;\n' +
+        '\n' +
+        'class Solution {\n' +
+        '       public String solution(String s) {\n' +
+        '               return s;\n' +
+        '       }\n' +
+        '}')
 
+    //SolvePageInputCode에 넘길 함수.
+    const onChangeCode = useCallback((e : React.ChangeEvent<HTMLTextAreaElement>) => {
+        setCode(e.target.value);
+        e.preventDefault();
+    }, []);
+
+    //RunArea에 넘길 함수. -- "RUN!' 버튼 클릭 시 구동
+    const onClickRunButton = useCallback(() => {
+        const codeRequest = code;
+        // axios.get(code)
+        // 받아온 결과값 setState화 해야한다.
+        // 밑에 "2개 중 1개 성공" 과 같은 문장이 나오도록 설정.
+    }, [])
 
     return (
         <div className={"solve-main-page"}>
@@ -60,6 +88,10 @@ const SolvePageContainer = ({examId, title, level, nickname} : ParamIFace) => {
                 input={exam_input}
                 output={exam_output}
             />
+            <SolvePageInputCode code={code} onChangeCode={onChangeCode}/>
+            <div className={"run-area"}>
+                <RunArea onClickRunButton={onClickRunButton}/>
+            </div>
         </div>
     )
 }

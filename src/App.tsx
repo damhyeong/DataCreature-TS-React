@@ -5,10 +5,11 @@ import Login from "./Login";
 import ExampleContainer from "./components/MainPage/ExampleContainer/ExampleContainer";
 import MainpageContainer from "./components/MainPage/MainpageContainer/MainpageContainer";
 import SolvePageContainer from "./components/SolvePage/SolvePageContainer/SolvePageContainer";
+import MainRoutes from "./components/MainRoutes";
 
 function App() {
     return (
-        <SolvePageContainer examId={1} title={"JadenCase 문자열 만들기"} level={3} nickname={"담순쨩"}/>
+        <MainRoutes/>
     );
 }
 

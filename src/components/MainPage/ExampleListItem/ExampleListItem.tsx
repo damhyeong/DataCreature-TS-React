@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.scss";
+import {Link} from "react-router-dom";
 
 interface PIFace{
     id : number;
@@ -20,9 +21,9 @@ const ExampleListItem = (props : PIFace) => {
                     </div>
                 </div>
                 <div className={"item-middle"}>
-                    <div className={"example-title"}>
+                    <Link to={`/solvePage?examId=${id}&title=${title}&level=${level}&nickname=담순`} className={"example-title"}>
                         {title}
-                    </div>
+                    </Link>
                 </div>
                 <div className={"item-right"}>
                     <div className={"example-level"}>
