@@ -3,43 +3,48 @@ import './styles.scss'
 import LevelSelector from "../LevelSelector/LevelSelector";
 import ExampleInOutput from "../ExampleInOutput/ExampleInOutput";
 
-const UploadInfoContainer = () => {
-    const [title, setTitle] = useState<string>('');
-    const [level, setLevel] = useState<number>(0);
-    const [introduce, setIntroduce] = useState<string>('');
-    const [constraints, setConstraints] = useState<string>('');
-    const [examInput, setExamInput] = useState<string>('');
-    const [examOutput, setExamOutput] = useState<string>('');
+interface PIFace{
+    titleRef : React.MutableRefObject<string>;
+    levelRef : React.MutableRefObject<number>;
+    introduceRef : React.MutableRefObject<string>;
+    constraintsRef : React.MutableRefObject<string>;
+    examInputRef : React.MutableRefObject<string>;
+    examOutputRef : React.MutableRefObject<string>;
+}
+
+const UploadInfoContainer =
+    ({titleRef, levelRef, introduceRef, constraintsRef, examInputRef, examOutputRef} : PIFace) => {
+
 
     const onChangeTitle = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value);
-    }, []);
+        titleRef.current = e.target.value;
+    }, [titleRef]);
     const onClickLevel = useCallback((id : number) => {
-        setLevel(id);
-    }, []);
+        levelRef.current = id;
+    }, [levelRef]);
     const onChangeIntroduce = useCallback((e : React.ChangeEvent<HTMLTextAreaElement>) => {
-        setIntroduce(e.target.value);
-    }, [])
+        introduceRef.current = e.target.value
+    }, [introduceRef])
     const onChangeConstraints = useCallback((e : React.ChangeEvent<HTMLTextAreaElement>) => {
-        setConstraints(e.target.value);
-    }, [])
+        constraintsRef.current = e.target.value;
+    }, [constraintsRef])
     const onChangeInput = useCallback((e : React.ChangeEvent<HTMLTextAreaElement>) => {
-        setExamInput(e.target.value);
-    }, []);
+        examInputRef.current = e.target.value;
+    }, [examInputRef]);
     const onChangeOutput = useCallback((e : React.ChangeEvent<HTMLTextAreaElement>) => {
-        setExamOutput(e.target.value);
-    }, []);
+        examOutputRef.current= e.target.value;
+    }, [examOutputRef]);
 
     return (
         <div className={"upload-info-container"}>
             <div className={"title-container"}>
                 <div className={"indicate-title"}>제목 : </div>
-                <input className={"input-title"} value={title} onChange={onChangeTitle} placeholder={"문제 제목을 입력하세요."}/>
+                <input className={"input-title"} value={titleRef.current} onChange={onChangeTitle} placeholder={"문제 제목을 입력하세요."}/>
             </div>
             <hr/>
             <div className={"indicate"}>Level</div>
             <div className={"select-level"}>
-                <LevelSelector onClickLevel={onClickLevel} level={level}/>
+                <LevelSelector onClickLevel={onClickLevel} level={levelRef.current}/>
             </div>
             <hr/>
             <div className={"indicate"}>문제 설명</div>
