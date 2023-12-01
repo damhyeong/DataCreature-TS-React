@@ -6,10 +6,11 @@ import ExampleContainer from "./components/MainPage/ExampleContainer/ExampleCont
 import MainpageContainer from "./components/MainPage/MainpageContainer/MainpageContainer";
 import SolvePageContainer from "./components/SolvePage/SolvePageContainer/SolvePageContainer";
 import MainRoutes from "./components/MainRoutes";
+import UploadMainPage from "./components/UploadPage/UploadMainPage/UploadMainPage";
 
 function App() {
     return (
-        <MainRoutes/>
+        <UploadMainPage/>
     );
 }
 

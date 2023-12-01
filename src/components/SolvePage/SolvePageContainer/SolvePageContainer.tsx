@@ -100,7 +100,7 @@ const SolvePageContainer = () => {
         e.preventDefault();
     }, []);
 
-    //RunArea에 넘길 함수. -- "RUN!' 버튼 클릭 시 구동
+    // RunArea에 넘길 함수. -- "RUN!' 버튼 클릭 시 구동
     const onClickRunButton = useCallback(async () => {
         const response = await axios.post('http://localhost:4000/execute-code', code);
 

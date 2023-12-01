@@ -1,0 +1,55 @@
+.upload-main-page{
+  display: flex;
+  flex-direction: column;
+  min-width: 1920px;
+  overflow-x : clip;
+  overflow-y: auto;
+  hr{
+    width: 100%;
+  }
+
+  .upload-page-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+
+    .project-title{
+      display: flex;
+      padding: 1rem;
+      align-content: center;
+      font-size: 2rem;
+    }
+    .upload-button{
+      border : 2px solid black;
+      border-radius: 10px;
+      font-size: 2rem;
+      color: white;
+      padding: 1rem;
+      background: black;
+      // 마우스 올릴 시
+      &:hover{
+        color : black;
+        background : white;
+      }
+      transition-duration: 0.2s;
+    }
+  }
+  .upload-page-background{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: lightgray;
+    width: 100%;
+    .upload-page-container{
+      display: flex;
+      border-radius: 20px;
+      padding : 2rem;
+      background: white;
+      // 너비는 1570px로 고정.
+      min-width: 1570px;
+      max-width: 1570px;
+    }
+  }
+}

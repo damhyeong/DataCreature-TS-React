@@ -1,0 +1,28 @@
+.level-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .selected{
+    @extend .level-box;
+    background : #333333;
+    color : white;
+  }
+  .notSelected{
+    @extend .level-box;
+    background: lightgray;
+  }
+}
+.level-box{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 170px;
+  height: 150px;
+  border: 5px solid darkgray;
+  border-radius: 20px;
+  font-size: 3rem;
+  &:hover{
+    border : 5px solid black;
+  }
+  transition-duration: 0.3s;
+}
