@@ -17,7 +17,7 @@ const UploadMainPage = () => {
 
     const onClickUpload = useCallback(async (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        x
+        
         /**
          * 필수 - title, introduce, examOutput
          * 문자열이 '' 일 때, 묻기
