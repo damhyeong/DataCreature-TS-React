@@ -84,9 +84,14 @@ const SolvePageContainer = () => {
 
     // RunArea에 넘길 함수. -- "RUN!' 버튼 클릭 시 구동
     const onClickRunButton = useCallback(async () => {
-        const response = await axios.post('http://localhost:4000/docker/execute-code', code);
 
-        console.log(response.data);
+
+        try{
+            const response = await axios.post('http://localhost:4000/docker/execute-code', code);
+            console.log(response.data);
+        } catch (e) {
+            console.log("Error : " + e);
+        }
 
         // axios.get(code)
         // 받아온 결과값 setState화 해야한다.
