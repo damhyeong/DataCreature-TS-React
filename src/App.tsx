@@ -7,10 +7,11 @@ import MainpageContainer from "./components/MainPage/MainpageContainer/MainpageC
 import SolvePageContainer from "./components/SolvePage/SolvePageContainer/SolvePageContainer";
 import MainRoutes from "./components/MainRoutes";
 import UploadMainPage from "./components/UploadPage/UploadMainPage/UploadMainPage";
+import LoginPage from "./components/AuthPage/LoginPage/LoginPage";
 
 function App() {
     return (
-        <UploadMainPage/>
+        <LoginPage/>
     );
 }
 
