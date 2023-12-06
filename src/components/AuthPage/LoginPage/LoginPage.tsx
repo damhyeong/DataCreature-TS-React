@@ -1,10 +1,12 @@
 import React, {useCallback, useState} from "react";
 import './styles.scss';
 import axios from "axios";
+import {useNavigate} from 'react-router-dom'
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const onChangeEmail = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -26,11 +28,12 @@ const LoginPage = () => {
             console.log("인증에 성공했습니다!!!!!!!");
             console.log(response.data.token);
             localStorage.setItem('token', response.data.token);
-            // history.push('/mainPage') - 메인 페이지로 이동
+            // history.push('/mainPage');
+            navigate('/mainPage');
         } catch (error) {
             console.log('로그인에 실패하였습니다.');
         }
-    }, [email, password]);
+    }, [email, password, navigate]);
 
     return (
         <div className={"login-page-container"}>

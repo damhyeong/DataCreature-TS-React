@@ -25,18 +25,17 @@ const MainpageContainer = () => {
 
     const fetchDetailData = async () => {
         try {
+            const token = localStorage.getItem('token');
             const response = await axios.get(`http://localhost:4000/api/examples/currentList`, {
-                /*
-                params: {
-                    examId: queryParams.examId
+                headers : {
+                    Authorization : `Bearer ${token}`
                 }
-                */
-
             });
             setCurrentList(response.data);
             console.log(response.data);
         } catch (error) {
             console.error("문제 상세 정보를 가져오는 중 오류 발생", error);
+            console.log(error);
         }
     };
 

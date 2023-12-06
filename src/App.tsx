@@ -11,7 +11,7 @@ import LoginPage from "./components/AuthPage/LoginPage/LoginPage";
 
 function App() {
     return (
-        <LoginPage/>
+        <MainRoutes/>
     );
 }
 
