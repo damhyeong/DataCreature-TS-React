@@ -2,10 +2,10 @@
   display: flex;
   background: #efefef;
   border-radius: 15px;
-  width: 45rem;
+  width: 100%;
   height : 600px;
   overflow-y: auto;
-  overflow-x: clip;
+  overflow-x: auto;
   flex-direction: column;
   .title-container{
     display: flex;

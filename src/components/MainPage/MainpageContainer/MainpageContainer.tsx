@@ -30,9 +30,11 @@ const MainpageContainer = () => {
                 headers : {
                     Authorization : `Bearer ${token}`
                 }
-            });
-            setCurrentList(response.data);
-            console.log(response.data);
+            }).then(response => setCurrentList(response.data));
+            // const response = await axios.get(`http://localhost:4000/api/examples/currentList`);
+            // setCurrentList(response.data);
+            console.log('response.data');
+            // console.log(response);
         } catch (error) {
             console.error("문제 상세 정보를 가져오는 중 오류 발생", error);
             console.log(error);
@@ -42,6 +44,7 @@ const MainpageContainer = () => {
     // 컴포넌트가 마운트될 때 API 호출
     useEffect(() => {
         fetchDetailData();
+
     }, []); // examId가 변경될 때마다 호출
 
 

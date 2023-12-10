@@ -32,7 +32,12 @@ const UploadMainPage = () => {
         }
 
         try{
-            const response = await axios.post("http://localhost:4000/api/examples/examUpload", payload);
+            const token = localStorage.getItem('token');
+            const response = await axios.post("http://localhost:4000/api/examples/examUpload", payload, {
+                headers : {
+                    Authorization : `Bearer ${token}`
+                }
+            });
             console.log("response : " + response);
         } catch (e){
             console.log(e);

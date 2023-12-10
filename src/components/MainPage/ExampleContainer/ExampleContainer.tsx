@@ -28,6 +28,7 @@ const ExampleContainer = ({currentList, levelList} : PIFace) => {
         setLevelExamList(levelList);
     }, [currentList, levelList]);
 
+
     return (
         <div className={"example-container"}>
             <div className={"example-current"}>

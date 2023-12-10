@@ -2,6 +2,7 @@ import React, {useCallback, useState} from "react";
 import './styles.scss';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
+import './styles.scss'
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ const LoginPage = () => {
         <div className={"login-page-container"}>
             <input type={"email"} value={email} onChange={onChangeEmail}/>
             <input type={"password"} value={password} onChange={onChangePassword}/>
-            <button value={"send"} onClick={onClickLogin}/>
+            <button value={"send"} onClick={onClickLogin}>login</button>
         </div>
     )
 }
