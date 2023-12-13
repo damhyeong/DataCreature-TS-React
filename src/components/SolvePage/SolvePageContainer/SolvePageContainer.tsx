@@ -19,7 +19,7 @@ const SolvePageContainer = () => {
     // {examId, title, level, nickname} : ParamIFace
     const location = useLocation();
     const [gptAnswer, setGptAnswer] = useState('');
-    const [secretKey, setSecretKey] = useState('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')
+    const [secretKey, setSecretKey] = useState('Insert Your GPT API-KEY')
 
     // Function to parse the query parameters
     const getQueryParams = (query: string): ParamIFace => {
