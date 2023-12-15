@@ -9,7 +9,7 @@ interface PFace{
 const InputOutputTables = ({input, output} : PFace) => {
     // 추후 input, output을 배열로 받았을 상황을 가정해야 한다.
     return (
-        <div className={"container"}>
+        <div className={"input-output-container"}>
             <table>
                 <thead>
                 <td><div className={"header-input-title"}>Input Text</div></td>

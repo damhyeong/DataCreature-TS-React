@@ -49,7 +49,7 @@ const MainpageContainer = () => {
 
 
     return (
-        <div className={"main-page"}>
+        <div className={"main-page-container"}>
             <div className={"main-header"}>
                 <div className={"project-title"}>Data Creature</div>
                 <div className={"user-id"}>{userId}</div>

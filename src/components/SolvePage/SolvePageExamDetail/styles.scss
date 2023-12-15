@@ -1,10 +1,12 @@
-.container{
+.solve-page-exam-detail-container{
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-top: 4rem;
   width: 80%;
   background: none;
   min-height: 60vh;
+  overflow: auto;
   .example-title{
     padding-left: 3rem;
     font-size: 3rem;
@@ -16,6 +18,7 @@
   .example-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-left: 3rem;
 
     .title{
@@ -43,6 +46,9 @@
       white-space: pre-wrap; // "\n" 표현을 줄넘김 할 수 있게 해준다.
     }
     .example-input-output{
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding-top: 1rem;
     }
   }

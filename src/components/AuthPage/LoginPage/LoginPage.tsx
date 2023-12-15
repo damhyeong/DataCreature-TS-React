@@ -31,15 +31,16 @@ const LoginPage = () => {
             console.log(response.data.token);
             localStorage.setItem('token', response.data.token);
             // history.push('/mainPage');
-            navigate('/mainPage');
+            navigate('/');
         } catch (error) {
             console.log('로그인에 실패하였습니다.');
+            alert("Failed to Login.");
         }
     }, [email, password, navigate]);
 
     return (
-        <div className={"container"}>
-            <div className={"login-page-container"}>
+        <div className={"login-page-container"}>
+            <div className={"login-container"}>
                 <div className={"project-title"}>
                     Data Creature
                 </div>

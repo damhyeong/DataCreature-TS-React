@@ -15,11 +15,17 @@ interface ParamIFace{
     nickname : string | undefined;
 }
 
+interface RunResult{
+    runResult : boolean;
+    reason : string;
+}
+
 const SolvePageContainer = () => {
     // {examId, title, level, nickname} : ParamIFace
     const location = useLocation();
     const [gptAnswer, setGptAnswer] = useState('');
     const [secretKey, setSecretKey] = useState('Insert Your GPT API-KEY')
+    const [resultText, setResultText] = useState<string>('');
 
     // Function to parse the query parameters
     const getQueryParams = (query: string): ParamIFace => {
@@ -74,9 +80,9 @@ const SolvePageContainer = () => {
     const [code, setCode] = useState<string>(
         'import java.util.*;\n' +
         '\n' +
-        'class Solution {\n' +
-        '       public void main(String s) {\n' +
-        '               return s;\n' +
+        'public class Test {\n' +
+        '       public static void main(String[] args) {\n' +
+        '               System.out.println("");\n' +
         '       }\n' +
         '}')
 
@@ -138,18 +144,35 @@ const SolvePageContainer = () => {
         console.log(run);
     }
 
-    const onClickRunButton = useCallback(async () => {
+    /*const onClickRunButton = useCallback(async () => {
         // ... 기존 코드 ...
         // await executeUserCode(code);
         axios.get("http://localhost:4000/code-execute/test-run-code");
-        /*try {
+        /!*try {
             const result = await openAiApiCall(code);
             console.log(result);
             // 여기에 결과를 UI에 표시하는 로직을 추가
             setGptAnswer(result);
         } catch (e) {
             console.log("Error : " + e);
-        }*/
+        }*!/
+    }, [code, executeUserCode]);*/
+
+    const onClickRunButton = useCallback(async () => {
+        // ... 기존 코드 ...
+        // await executeUserCode(code);
+        const result = await axios.post("http://localhost:4000/code-execute/test-run-code", {
+            userCode : code,
+            input : detailData.examInput,
+            output : detailData.examOutput
+        });
+        const resultData : RunResult = result.data;
+        if(resultData.runResult){
+            setResultText('성공했습미다.');
+        }else{
+            setResultText('실패했습니다.');
+        }
+
     }, [code, executeUserCode]);
 
 
@@ -208,7 +231,7 @@ const SolvePageContainer = () => {
                 <RunArea onClickRunButton={onClickRunButton}/>
             </div>
             <div>
-                여기에 GPT가 주는 답변을 실시간으로 보게 만들어야 함.<br/>
+                {resultText}<br/>
                 <div>
                     {gptAnswer}
                 </div>

@@ -12,7 +12,7 @@ interface PFace{
 
 const SolvePageExamDetail = ({title, introduce, constraints, input, output} : PFace) => {
     return (
-        <div className={"container"}>
+        <div className={"solve-page-exam-detail-container"}>
             <div className={"example-title"}>{title}</div>
             <hr/>
             <div className={"example-container"}>

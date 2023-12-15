@@ -22,7 +22,7 @@ const ExampleCurrentList = (props : ELIface) => {
     if(Array.isArray(examList)){
         const {examList} = props;
         return (
-            <div className={"container"}>
+            <div className={"example-list-container"}>
                 <div className={"title-container"}>
                     <div className={"id-title"}>ID</div>
                     <div className={"title-title"}>문제 제목</div>
