@@ -1,45 +1,95 @@
-.login-page-container {
+.container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh; // 전체 화면 높이
-  background-color: #f2f2f2; // 배경색
+  align-items: center;
+  background: #041d40;
+  width: 100%;
+  height : 100vh;
+  overflow : auto;
+  border-radius: 0px;
 
-  input[type="email"],
-  input[type="password"] {
-    width: 80%; // 너비
-    padding: 10px; // 패딩
-    margin: 10px 0; // 마진
-    border: 1px solid #ccc; // 테두리
-    border-radius: 4px; // 테두리 둥글게
-    box-sizing: border-box; // 박스 사이징
+  animation: vanishIn 2s;
 
-    // 플레이스홀더 스타일
-    &::placeholder {
-      color: #aaa;
+  .login-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0f376e;
+    width: 40%;
+    height : 80vh;
+    padding : 2rem; // 전체 화면 높이
+    border-radius:15px;
+
+    .project-title{
+      display: flex;
+      height : 5rem;
+      font-size: 3rem;
+      color: #EEEEEE;
+      flex-direction: row;
+      justify-content: space-around;
+
+      @keyframes vanishIn {
+        0% {
+          opacity: 0;
+          transform-origin: 50% 50%;
+          transform: scale(2, 2);
+          filter: blur(90px);
+        }
+        100% {
+          opacity: 1;
+          transform-origin: 50% 50%;
+          transform: scale(1, 1);
+          filter: blur(0px);
+        }
+      }
     }
 
-    // 포커스 시 스타일
-    &:focus {
-      outline: none;
-      border-color: #007bff;
-    }
-  }
+    .email,
+    .password {
+      width: 80%; // 너비
+      padding: 10px; // 패딩
+      margin: 10px 0; // 마진
+      border: 1px solid #ccc; // 테두리
+      border-radius: 4px; // 테두리 둥글게
+      box-sizing: border-box; // 박스 사이징
 
-  button {
-    width: 85%; // 너비
-    padding: 10px; // 패딩
-    margin-top: 10px; // 상단 마진
-    background-color: #007bff; // 배경색
-    color: white; // 글자색
-    border: none; // 테두리 제거
-    border-radius: 4px; // 테두리 둥글게
-    cursor: pointer; // 커서 스타일
-    transition: background-color 0.3s ease; // 배경색 전환 효과
+      // 플레이스홀더 스타일
+      &::placeholder {
+        color: #aaa;
+      }
 
-    &:hover {
-      background-color: #0056b3; // 호버 시 배경색
+      // 포커스 시 스타일
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      animation: fadeIn 1s ease-in-out;
     }
+
+    button {
+      width: 30%; // 너비
+      padding: 10px; // 패딩
+      margin-top: 10px; // 상단 마진
+      background-color: #007bff; // 배경색
+      color: white; // 글자색
+      border: none; // 테두리 제거
+      border-radius: 4px; // 테두리 둥글게
+      cursor: pointer; // 커서 스타일
+      transition: background-color 0.3s ease; // 배경색 전환 효과
+
+      font-size: 1.125rem;
+
+      &:hover {
+        background-color: #0056b3; // 호버 시 배경색
+      }
+
+      animation: vanishIn 1s ease-in-out;
+    }
+
+
+
   }
 }

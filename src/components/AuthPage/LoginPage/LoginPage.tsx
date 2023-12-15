@@ -7,6 +7,7 @@ import './styles.scss'
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [titleCss, setTitleCss] = useState<string>('project-title');
     const navigate = useNavigate();
 
     const onChangeEmail = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +38,15 @@ const LoginPage = () => {
     }, [email, password, navigate]);
 
     return (
-        <div className={"login-page-container"}>
-            <input type={"email"} value={email} onChange={onChangeEmail}/>
-            <input type={"password"} value={password} onChange={onChangePassword}/>
-            <button value={"send"} onClick={onClickLogin}>login</button>
+        <div className={"container"}>
+            <div className={"login-page-container"}>
+                <div className={"project-title"}>
+                    Data Creature
+                </div>
+                <input className={"email"} type={"email"} value={email} onChange={onChangeEmail} placeholder={"Email을 입력하세요."}/>
+                <input className={"password"} type={"password"} value={password} onChange={onChangePassword} placeholder={"Password를 입력하세요."}/>
+                <button value={"send"} onClick={onClickLogin}>login</button>
+            </div>
         </div>
     )
 }
