@@ -6,7 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm deploy`
 
 Branch 중 `main` 브랜치에서 실행 시 새로 GithubPages를 배포해 주는 \
 `npm`의 모듈입니다.
